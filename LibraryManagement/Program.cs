@@ -31,9 +31,10 @@ namespace LibraryManagement
                 services.AddScoped<MainForm>();
                 services.AddScoped<FrmBooks>();
                 services.AddScoped<FrmAuthors>();
-                services.AddScoped<FrmPublishers>();                
+                services.AddScoped<FrmPublishers>(); services.AddScoped<FrmLeanBooks>();
 
                 services.AddScoped<IBookRepository, BookRepository>();
+                services.AddScoped<IPersonRepository, PersonRepository>();
             });
 
             var host = builder.Build();

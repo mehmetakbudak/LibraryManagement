@@ -53,6 +53,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmEditBook";
             this.TopMost = true;
+            this.Load += new System.EventHandler(this.FrmEditBook_Load);
             this.ResumeLayout(false);
 
         }

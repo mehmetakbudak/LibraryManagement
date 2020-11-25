@@ -1,9 +1,8 @@
 ﻿namespace LibraryManagement.Data.Entities
 {
-    public class Authors : BaseEntity
+    public class Publisher : BaseEntity
     {
         public string Name { get; set; }
-        public string Surname { get; set; }
         public bool Deleted { get; set; }
     }
 }

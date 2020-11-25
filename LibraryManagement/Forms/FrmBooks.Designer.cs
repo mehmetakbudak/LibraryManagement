@@ -28,44 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.btnEditForm = new System.Windows.Forms.Button();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BookName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CategoryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridBook = new System.Windows.Forms.DataGridView();
-            this.btnEditForm = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnLend = new System.Windows.Forms.Button();
+            this.btnReceive = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridBook)).BeginInit();
             this.SuspendLayout();
-            // 
-            // Id
-            // 
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "Id";
-            this.Id.MinimumWidth = 8;
-            this.Id.Name = "Id";
-            this.Id.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Id.Visible = false;
-            this.Id.Width = 150;
-            // 
-            // BookName
-            // 
-            this.BookName.DataPropertyName = "Name";
-            this.BookName.HeaderText = "Adı";
-            this.BookName.MinimumWidth = 8;
-            this.BookName.Name = "BookName";
-            this.BookName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.BookName.Width = 150;
-            // 
-            // dataGridBook
-            // 
-            this.dataGridBook.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridBook.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Id,
-            this.BookName});
-            this.dataGridBook.Location = new System.Drawing.Point(12, 159);
-            this.dataGridBook.Name = "dataGridBook";
-            this.dataGridBook.RowHeadersWidth = 62;
-            this.dataGridBook.Size = new System.Drawing.Size(1148, 164);
-            this.dataGridBook.TabIndex = 0;
-            this.dataGridBook.Text = "dataGridView1";
             // 
             // btnEditForm
             // 
@@ -77,11 +49,94 @@
             this.btnEditForm.UseVisualStyleBackColor = true;
             this.btnEditForm.Click += new System.EventHandler(this.btnEditForm_Click);
             // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.MinimumWidth = 8;
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Id.Visible = false;
+            this.Id.Width = 150;
+            // 
+            // BookName
+            // 
+            this.BookName.DataPropertyName = "Name";
+            this.BookName.HeaderText = "Adı";
+            this.BookName.MinimumWidth = 8;
+            this.BookName.Name = "BookName";
+            this.BookName.ReadOnly = true;
+            this.BookName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.BookName.Width = 150;
+            // 
+            // CategoryName
+            // 
+            this.CategoryName.DataPropertyName = "CategoryName";
+            this.CategoryName.HeaderText = "Kategori Adı";
+            this.CategoryName.MinimumWidth = 8;
+            this.CategoryName.Name = "CategoryName";
+            this.CategoryName.ReadOnly = true;
+            this.CategoryName.Width = 150;
+            // 
+            // dataGridBook
+            // 
+            this.dataGridBook.AllowUserToAddRows = false;
+            this.dataGridBook.AllowUserToDeleteRows = false;
+            this.dataGridBook.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridBook.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
+            this.BookName,
+            this.CategoryName});
+            this.dataGridBook.Location = new System.Drawing.Point(12, 159);
+            this.dataGridBook.Name = "dataGridBook";
+            this.dataGridBook.ReadOnly = true;
+            this.dataGridBook.RowHeadersWidth = 62;
+            this.dataGridBook.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridBook.Size = new System.Drawing.Size(1623, 375);
+            this.dataGridBook.TabIndex = 0;
+            this.dataGridBook.Text = "dataGridView1";
+            this.dataGridBook.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridBook_CellMouseClick);
+            this.dataGridBook.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridBook_DataBindingComplete);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Location = new System.Drawing.Point(153, 110);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(112, 34);
+            this.btnEdit.TabIndex = 2;
+            this.btnEdit.Text = "Düzenle";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // btnLend
+            // 
+            this.btnLend.Location = new System.Drawing.Point(294, 110);
+            this.btnLend.Name = "btnLend";
+            this.btnLend.Size = new System.Drawing.Size(112, 34);
+            this.btnLend.TabIndex = 3;
+            this.btnLend.Text = "Ödünç Ver";
+            this.btnLend.UseVisualStyleBackColor = true;
+            this.btnLend.Click += new System.EventHandler(this.btnLend_Click);
+            // 
+            // btnReceive
+            // 
+            this.btnReceive.Location = new System.Drawing.Point(435, 110);
+            this.btnReceive.Name = "btnReceive";
+            this.btnReceive.Size = new System.Drawing.Size(112, 34);
+            this.btnReceive.TabIndex = 3;
+            this.btnReceive.Text = "Teslim Al";
+            this.btnReceive.UseVisualStyleBackColor = true;
+            this.btnReceive.Click += new System.EventHandler(this.btnLend_Click);
+            // 
             // FrmBooks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1172, 379);
+            this.ClientSize = new System.Drawing.Size(1647, 673);
+            this.Controls.Add(this.btnReceive);
+            this.Controls.Add(this.btnLend);
+            this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnEditForm);
             this.Controls.Add(this.dataGridBook);
             this.Name = "FrmBooks";
@@ -98,9 +153,13 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridBook;
+        private System.Windows.Forms.Button btnEditForm;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn BookName;
-        private System.Windows.Forms.Button btnEditForm;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CategoryName;
+        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.Button btnLend;
+        private System.Windows.Forms.Button btnReceive;
     }
 }
 

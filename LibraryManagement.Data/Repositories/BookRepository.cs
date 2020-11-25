@@ -1,4 +1,5 @@
 ﻿using LibraryManagement.Data.Entities;
+using LibraryManagement.Data.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,27 +8,37 @@ namespace LibraryManagement.Data.Repositories
 {
     public interface IBookRepository
     {
-        List<Books> GetAll();
+        List<BookModel> GetAll();
+        Book GetById(int id);
     }
 
     public class BookRepository : IBookRepository
     {
-        private LibraryContext context;
+        private readonly LibraryContext context;
         public BookRepository(LibraryContext context)
         {
             this.context = context;
         }
 
-        public List<Books> GetAll()
+        public List<BookModel> GetAll()
         {
-            try
+            return context.Books.Where(x => !x.Deleted).Select(x => new BookModel
             {
-                return context.Books.ToList();
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
+                AuthorName = x.Author.Name,
+                CategoryName = x.Category.Name,
+                Id = x.Id,
+                IsActive = x.IsActive,
+                Name = x.Name,
+                PageNumber = x.PageNumber,
+                Price = x.Price,
+                PublisherName = x.Publisher.Name,
+                Status = x.Status
+            }).ToList();
+        }
+
+        public Book GetById(int id)
+        {
+            return context.Books.Find(id);
         }
     }
 }

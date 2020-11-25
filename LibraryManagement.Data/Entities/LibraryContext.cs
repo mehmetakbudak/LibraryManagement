@@ -6,12 +6,12 @@ namespace LibraryManagement.Data.Entities
     {
         public LibraryContext(DbContextOptions options) : base(options) { }
 
-        public DbSet<Books> Books { get; set; }
-        public DbSet<Authors> Authors { get; set; }
-        public DbSet<Categories> Categories { get; set; }
-        public DbSet<Publishers> Publishers { get; set; }
-        public DbSet<Persons> Persons { get; set; }
-        public DbSet<BookTransactions> BookTransactions { get; set; }
+        public DbSet<Book> Books { get; set; }
+        public DbSet<Author> Authors { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Publisher> Publishers { get; set; }
+        public DbSet<Person> Persons { get; set; }
+        public DbSet<BookTransaction> BookTransactions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
