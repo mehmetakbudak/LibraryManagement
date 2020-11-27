@@ -4,6 +4,7 @@ using LibraryManagement.Data.Repositories;
 using System;
 using System.Windows.Forms;
 using Microsoft.Extensions.DependencyInjection;
+using LibraryManagement.Data.Models;
 
 namespace LibraryManagement.Forms
 {
@@ -12,32 +13,27 @@ namespace LibraryManagement.Forms
         private readonly IBookRepository bookRepository;
         private readonly IServiceProvider serviceProvider;
 
+        internal static FrmBooks frmBook;
         Book book = new Book();
 
         public FrmBooks(IBookRepository bookRepository, IServiceProvider serviceProvider)
         {
             this.bookRepository = bookRepository;
             this.serviceProvider = serviceProvider;
-
+            frmBook = this;
             InitializeComponent();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            var books = bookRepository.GetAll();
-            dataGridBook.DataSource = books;
+            LoadGridData();
             SetDefaultButtonEnable();
         }
 
-        private void FrmBooks_FormClosing(object sender, FormClosingEventArgs e)
+        public void LoadGridData()
         {
-            e.Cancel = true;
-            Hide();
-        }
-
-        public void RefreshGrid()
-        {
-
+            var books = bookRepository.GetAll();
+            dataGridBook.DataSource = books;
         }
 
         private void btnEditForm_Click(object sender, EventArgs e)
@@ -65,10 +61,12 @@ namespace LibraryManagement.Forms
                     if (book.Status == BookStatus.OnTheShelf)
                     {
                         btnLend.Enabled = true;
+                        btnReceive.Enabled = false;
                     }
                     else if (book.Status == BookStatus.InUser)
                     {
                         btnReceive.Enabled = true;
+                        btnLend.Enabled = false;
                     }
                     else
                     {
@@ -81,13 +79,15 @@ namespace LibraryManagement.Forms
         private void btnEdit_Click(object sender, EventArgs e)
         {
             FrmEditBook frm = new FrmEditBook(this, book);
-            frm.Show();
+            frm.ShowDialog(this);
         }
 
         private void btnLend_Click(object sender, EventArgs e)
         {
             var frm = serviceProvider.GetService<FrmLeanBooks>();
-            frm.Show();
+            BookTransactionData.BookId = book.Id;
+            BookTransactionData.BookStatus = book.Status;
+            frm.ShowDialog(this);
         }
 
         private void SetDefaultButtonEnable()
@@ -95,6 +95,12 @@ namespace LibraryManagement.Forms
             btnEdit.Enabled = false;
             btnLend.Enabled = false;
             btnReceive.Enabled = false;
+        }
+
+        private void FrmBooks_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+            Hide();
         }
     }
 }

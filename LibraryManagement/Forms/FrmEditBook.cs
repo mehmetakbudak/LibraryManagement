@@ -22,7 +22,7 @@ namespace LibraryManagement.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            frmBooks.RefreshGrid();
+            frmBooks.LoadGridData();
             this.Close();
         }
 

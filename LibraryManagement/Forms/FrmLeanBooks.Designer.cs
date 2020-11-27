@@ -69,6 +69,7 @@
             // 
             // dateTimeReturnDate
             // 
+            this.dateTimeReturnDate.Enabled = false;
             this.dateTimeReturnDate.Location = new System.Drawing.Point(158, 219);
             this.dateTimeReturnDate.Name = "dateTimeReturnDate";
             this.dateTimeReturnDate.Size = new System.Drawing.Size(300, 31);
@@ -159,6 +160,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ödünç Ver";
             this.TopMost = true;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmLeanBooks_FormClosing);
             this.Load += new System.EventHandler(this.FrmLeanBooks_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

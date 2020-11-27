@@ -2,6 +2,7 @@ using LibraryManagement.Data.Entities;
 using LibraryManagement.Data.Repositories;
 using LibraryManagement.Forms;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Proxies;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
@@ -26,7 +27,12 @@ namespace LibraryManagement
 
             var builder = new HostBuilder().ConfigureServices((hostContext, services) =>
             {
-                services.AddDbContext<LibraryContext>(options => options.UseSqlite("Data Source=database.db"));
+                services.AddDbContext<LibraryContext>(
+                    options =>
+                    {
+                        options.UseSqlite("Data Source=database.db");
+                        options.UseLazyLoadingProxies(true);
+                    });
 
                 services.AddScoped<MainForm>();
                 services.AddScoped<FrmBooks>();
@@ -35,6 +41,7 @@ namespace LibraryManagement
 
                 services.AddScoped<IBookRepository, BookRepository>();
                 services.AddScoped<IPersonRepository, PersonRepository>();
+                services.AddScoped<IBookTransactionRepository, BookTransactionRepository>();
             });
 
             var host = builder.Build();
