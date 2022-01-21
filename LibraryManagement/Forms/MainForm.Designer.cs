@@ -33,8 +33,6 @@
             this.menuItemAuthor = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemPublisher = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemBooks = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.sqliteCommand1 = new Microsoft.Data.Sqlite.SqliteCommand();
             this.topMenu.SuspendLayout();
             this.SuspendLayout();
@@ -44,12 +42,11 @@
             this.topMenu.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.topMenu.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.topMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuItemDefinition,
-            this.toolStripMenuItem2,
-            this.toolStripMenuItem3});
+            this.menuItemDefinition});
             this.topMenu.Location = new System.Drawing.Point(0, 0);
             this.topMenu.Name = "topMenu";
-            this.topMenu.Size = new System.Drawing.Size(1193, 36);
+            this.topMenu.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.topMenu.Size = new System.Drawing.Size(954, 31);
             this.topMenu.TabIndex = 1;
             this.topMenu.Text = "Tanımlar";
             // 
@@ -60,41 +57,29 @@
             this.menuItemPublisher,
             this.menuItemBooks});
             this.menuItemDefinition.Name = "menuItemDefinition";
-            this.menuItemDefinition.Size = new System.Drawing.Size(101, 32);
+            this.menuItemDefinition.Size = new System.Drawing.Size(88, 27);
             this.menuItemDefinition.Text = "Tanımlar";
             // 
             // menuItemAuthor
             // 
             this.menuItemAuthor.Name = "menuItemAuthor";
-            this.menuItemAuthor.Size = new System.Drawing.Size(206, 36);
+            this.menuItemAuthor.Size = new System.Drawing.Size(224, 28);
             this.menuItemAuthor.Text = "Yazarlar";
             this.menuItemAuthor.Click += new System.EventHandler(this.menuItemAuthor_Click);
             // 
             // menuItemPublisher
             // 
             this.menuItemPublisher.Name = "menuItemPublisher";
-            this.menuItemPublisher.Size = new System.Drawing.Size(206, 36);
+            this.menuItemPublisher.Size = new System.Drawing.Size(224, 28);
             this.menuItemPublisher.Text = "Yayınevleri";
             this.menuItemPublisher.Click += new System.EventHandler(this.menuItemPublisher_Click);
             // 
             // menuItemBooks
             // 
             this.menuItemBooks.Name = "menuItemBooks";
-            this.menuItemBooks.Size = new System.Drawing.Size(206, 36);
+            this.menuItemBooks.Size = new System.Drawing.Size(224, 28);
             this.menuItemBooks.Text = "Kitaplar";
             this.menuItemBooks.Click += new System.EventHandler(this.menuItemBooks_Click);
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(205, 32);
-            this.toolStripMenuItem2.Text = "toolStripMenuItem2";
-            // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(205, 32);
-            this.toolStripMenuItem3.Text = "toolStripMenuItem3";
             // 
             // sqliteCommand1
             // 
@@ -105,12 +90,13 @@
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1193, 612);
+            this.ClientSize = new System.Drawing.Size(954, 490);
             this.Controls.Add(this.topMenu);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.topMenu;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "MainForm";
             this.Text = "Kütüphane Otomasyonu";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -125,8 +111,6 @@
 
         private System.Windows.Forms.MenuStrip topMenu;
         private System.Windows.Forms.ToolStripMenuItem menuItemDefinition;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem menuItemAuthor;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;

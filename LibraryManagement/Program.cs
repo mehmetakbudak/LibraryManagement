@@ -1,14 +1,11 @@
-using LibraryManagement.Data.Entities;
+using LibraryManagement.Data;
 using LibraryManagement.Data.Repositories;
 using LibraryManagement.Forms;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Proxies;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
 
 namespace LibraryManagement
@@ -30,7 +27,7 @@ namespace LibraryManagement
                 services.AddDbContext<LibraryContext>(
                     options =>
                     {
-                        options.UseSqlite("Data Source=database.db");
+                        options.UseSqlite($"Data Source=database.db");
                         options.UseLazyLoadingProxies(true);
                     });
 
